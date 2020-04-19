@@ -154,9 +154,11 @@ The PSNR and cosine similarity are not a universal panacea with respect to perfo
 We recommend for future work to look at the performance when training on a specific subject of images, such as landscapes only. Furthermore we recommend to perform n-fold cross validation to reduce the variance in the assessment. For the assessment we recommend to include more perceptual studies as well, since higher PSNR values don't necessarily equal better results.
 
 ## Citation of the original code
+'''
 @inproceedings{isola2017image,
   title={Image-to-Image Translation with Conditional Adversarial Networks},
   author={Isola, Phillip and Zhu, Jun-Yan and Zhou, Tinghui and Efros, Alexei A},
   booktitle={Computer Vision and Pattern Recognition (CVPR), 2017 IEEE Conference on},
   year={2017}
 }
+'''
