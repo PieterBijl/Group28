@@ -1,4 +1,4 @@
-<br><br><br>
+<br>
 
 # Image Restoration using Pix2Pix
 
