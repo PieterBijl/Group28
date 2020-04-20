@@ -2,10 +2,11 @@
 
 # Image Restoration using Pix2Pix
 
-![ScreenShot](/ImagesInText/005158_real_A.png "Figure 1")
 <p align="center">
+  <img src="/ImagesInText/005158_real_A.png" width="60%" height="60%"><br>
   Figure 1: From left to right: Pixelated image - BS64 N10 - BS64 N40 - BS64 N40 LRx20 - BS1 N10 - Real image
 </p>
+
 
 ## Acknowledgements
 We would like to thank our teaching assistant Pranjal Rajput for his guidance and advice during this project. He helped us think more outside of the box and steered the project in the right direction. Furthermore, we would also like to give thanks to Jan van Gemert for his enthusiasm while giving lectures and motivating us to successfully complete this project.
