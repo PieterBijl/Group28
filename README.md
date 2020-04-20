@@ -12,7 +12,7 @@
 We would like to thank our teaching assistant Pranjal Rajput for his guidance and advice during this project. He helped us think more outside of the box and steered the project in the right direction. Furthermore, we would also like to give thanks to Jan van Gemert for his enthusiasm while giving lectures and motivating us to successfully complete this project.
 
 ## Introduction
-The paper Image-to-Image Translation with Conditional Adversarial Networks showed that a general purpose solution could be made for image-to-image translation. Since the time that this paper was published, multiple artists and researchers have made their own models and experiments, with stunning results. These models range from creating cats out of drawings to creating videos of the sea by using an input from general household appliances.<br>
+The paper Image-to-Image Translation with Conditional Adversarial Networks (https://arxiv.org/pdf/1611.07004.pdf) showed that a general purpose solution could be made for image-to-image translation. Since the time that this paper was published, multiple artists and researchers have made their own models and experiments, with stunning results. These models range from creating cats out of drawings to creating videos of the sea by using an input from general household appliances.<br>
 The objective of the pix2pix model is to find a model that can map one picture to a desired paired image, which is indistinguishable from the real thing. An example is shown in Figure 1, where 4 different models attempt the mapping from the pixelated image to the real image. Pix2pix uses Conditional Generative Adversarial Networks to achieve this objective. Conditional means that the loss here is structured, there exists a conditional dependency between the pixels, meaning that the loss of one pixel is influenced by the loss of another. The loss function that is used by the model is shown in Equation 1.
 
 <p align="center">
@@ -31,7 +31,7 @@ In this section, four topics will be touched. Firstly, a short description of th
 For our initial research it was decided to use images of which the resolution was lower than that of the target/true image. Pix2pix generally uses 256x256 images, which is the size that we want to create. For input we wanted to initially use a dataset which used 64x64 images, but later an additional dataset was created where the resolution of the pictures was allowed to vary between 48x48 to 128x128 pixels, because initial tests showed that the model did not generalize well on random photos taken from the internet.
 
 ### Algorithm Training
-To train the algorithm a github repository was set up, in which the original pix2pix repository was cloned. Later we included our own data in this repository. This repository could be cloned to the virtual machine provided by Google Colaboratory, using the following code:
+To train the algorithm a github repository was set up, in which the original pix2pix repository was cloned (https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). Later we included our own data in this repository. This repository could be cloned to the virtual machine provided by Google Colaboratory, using the following code:
 ```python
 !git clone https://github.com/PieterBijl/Group28.git/
 ```
@@ -70,8 +70,10 @@ This data can be stored for later use and can be tested using the following piec
 !python test.py  - dataroot/content/Group28/datasets/variatonal_data/ test/  - name variational_data_batch_size_64_normal_epochs_50_decay_ 0  - model test
 ```
 These results were used for later analysis of the performance of the model.
-Changing hyperparameters
-In the code we identified several possible candidates for hyperparameter tuning. The possible candidates were:
+
+### Changing hyperparameters
+
+In their code there are several possible candidates for hyperparameter tuning. The possible candidates were:
 - Number of epochs with a constant learning rate, default = 100.
 - Number of epochs with a decaying learning rate, default = 100.
 - Momentum term of Adam optimization algorithm, default = 0.5.
