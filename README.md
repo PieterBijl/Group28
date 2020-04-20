@@ -267,6 +267,8 @@ To conclude we find that although the pix2pix algorithm has some potential towar
 
 We recommend for future work to look at the performance when training on a specific subject of images, such as landscapes only. Furthermore we recommend to perform n-fold cross validation to reduce the variance in the assessment. For the assessment we recommend to include more perceptual studies as well, since higher PSNR values don't necessarily equal better results.
 
+If the reader is interested in other reproductions of this paper, or reproductions of other papers, we would like to to refer you to https://reproducedpapers.org/.
+
 ## Citation of the original code
 ```
 @inproceedings{isola2017image,
