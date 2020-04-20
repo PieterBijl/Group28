@@ -162,9 +162,9 @@ Thirdly, why is none of the models achieving the PSNR of the pixelated images? A
 ## Conclusion and Recommendations
 During this project the pix2pix algorithm was used to train models on a variety of pixelated images. The training data was pixelated with different amounts of pixels to introduce variety. The models have been trained using a wide range of hyperparameters and assessed the quality of all the different models by comparing the PSNR of test images.
 To conclude we find that although the pix2pix algorithm has some potential towards enhancing or restoring images, it is lacking when small details are important. Some important lessons that we have learned from this experiment are:
-Data should consist of images with a variational blur to ensure that the model can handle different types of pixelated images.
-Careful hyperparameter tuning is of great importance for optimal results.
-The PSNR and cosine similarity are not a universal panacea with respect to performance analysis.
+- Data should consist of images with a variational blur to ensure that the model can handle different types of pixelated images.
+- Careful hyperparameter tuning is of great importance for optimal results.
+- The PSNR and cosine similarity are not a universal panacea with respect to performance analysis.
 
 We recommend for future work to look at the performance when training on a specific subject of images, such as landscapes only. Furthermore we recommend to perform n-fold cross validation to reduce the variance in the assessment. For the assessment we recommend to include more perceptual studies as well, since higher PSNR values don't necessarily equal better results.
 
