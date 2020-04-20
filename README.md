@@ -14,7 +14,7 @@ We would like to thank our teaching assistant Pranjal Rajput for his guidance an
 The paper Image-to-Image Translation with Conditional Adversarial Networks showed that a general purpose solution could be made for image-to-image translation. Since the time that this paper was published, multiple artists and researchers have made their own models and experiments, with stunning results. These models range from creating cats out of drawings to creating videos of the sea by using an input from general household appliances.
 The objective of the pix2pix model is to find a model that can map one picture to a desired paired image, which is indistinguishable from the real thing. An example is shown in Figure 1, where 4 different models attempt the mapping from the pixelated image to the real image. Pix2pix uses Conditional Generative Adversarial Networks to achieve this objective. Conditional means that the loss here is structured, there exists a conditional dependency between the pixels, meaning that the loss of one pixel is influenced by the loss of another. The loss function that is used by the model is shown in Equation 1.
 
-![ScreenShot](/ImagesInText/LossFunction.png width="100" "Equation 1")
+![ScreenShot](/ImagesInText/LossFunction.png "Equation 1"){:height="50%" width="50%"}
 <p align="center">
   Equation 1
 </p>
