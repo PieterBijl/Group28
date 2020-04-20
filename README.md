@@ -67,8 +67,7 @@ Cd /content/Group28/checkpoints/variational_data_batch_size_64_ normal _epochs_5
 ```
 This data can be stored for later use and can be tested using the following piece of code:
 ```python
-!python test.py  - dataroot/content/Group28/datasets/variatonal_data/ test/  - name variational_data
-  _batch_size_64_normal_epochs_50_decay_ 0  - model test
+!python test.py  - dataroot/content/Group28/datasets/variatonal_data/ test/  - name variational_data_batch_size_64_normal_epochs_50_decay_ 0  - model test
 ```
 These results were used for later analysis of the performance of the model.
 
