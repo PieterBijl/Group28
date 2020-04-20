@@ -167,21 +167,21 @@ Two interesting conclusions can already be drawn from these models. The first is
 These results were discussed with the teaching assistant and this is when the decision was made to continue with a batch size of 64. Figure 5 combines this batch size with normal epochs up to 120, for both the AB and variational dataset. Again, the PSNR of the pixelated is not achieved and the curve flattens after around 30 or 40 epochs. The models showed similar results for both datasets. The average PSNR is higher for the variational dataset, however the pixelated image also has a higher PSNR. The two black dots, originally blue, are models that are used later for comparison in a perceptual study of the images.
 
 <p align="center">
-  <img src="/ImagesInText/Figure5.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure5.png" width="70%" height="70%"><br>
   Figure 5: The PSNR plotted for different models for both datasets
 </p>
 
 It was questioned whether the flattening of the curve around 30 and 40 epochs could be prevented by using decaying epochs. Dataset AB was used in Figure 6. The figure on the left shows 30 normal epochs followed by 80 decay epochs and the figure on the right shows 40 normal epochs followed by 80 decay epochs. The figure on the right misses one data point due to an error that occurred in saving the model.
 
 <p align="center">
-  <img src="/ImagesInText/Figure6.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure6.png" width="100%" height="100%"><br>
   Figure 6 left: The PSNR plotted for different models with batch size 64. Figure 6 right: The PSNR plotted for different models with batch size 64
 </p>
 
 The figure on the left shows no major improvement in the results after 30 normal epochs. The PSNR slightly increases during the first 40 decay epochs, but it is enough to challenge the PSNR of the pixelated images. The figure on the right actually shows a decrease in PSNR after the training with decay epochs started. It also shows a small jump for 40 normal epochs. When comparing the exact same model in Figure 4, it can be seen that the first PSNR is 21.12 and the second 21.56. This caused interested in how much this difference could be for different models with the same hyperparameters. Figure 7 shows the results on the variational datasets, tested on 4 models with exactly the same hyperparameters.
 
 <p align="center">
-  <img src="/ImagesInText/Figure7.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure7.png" width="70%" height="70%"><br>
   Figure 7: The PSNR plotted for 4 identical models
 </p>
 
@@ -189,14 +189,14 @@ Three of the results are around 22.3 and one around 22.8, meaning that the resul
 Since the decay epochs were not showing great impact on the results, the learning rate was changed instead. The default setting was at LR = 0.0002. Figure 8 shows the results for a learning rate that is 0.1 and 10 times the default value of 0.0002.
 
 <p align="center">
-  <img src="/ImagesInText/Figure8.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure8.png" width="70%" height="70%"><br>
   Figure 8: The PSNR plotted for models with different learning rates
 </p>
 
 The higher learning rate shows a better performance on the test data. Furthermore, even higher learning rates of 20 times the default value were tested and these showed similar results to the 10 times the original learning rate. To extend on this study, a large model with 120 normal epochs was trained on the AB dataset with two different learning rates: the default value and 20 times this value, as shown in Figure 9. Again, the black dot, originally red, is a model that is used later for comparison in a perceptual study of the images.
 
 <p align="center">
-  <img src="/ImagesInText/Figure9.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure9.png" width="70%" height="70%"><br>
   Figure 9: The PSNR plotted for models with different learning rates
 </p>
 
@@ -204,7 +204,7 @@ Results show that the model with the higher learning rate gets a better start, b
 Still, there was no clear sign of a combination of hyperparameters that would lead to a model that could beat the PSNR of the pixelated image. It was decided to look back on the assumptions made, especially the one where it was assumed that the batch size only had an influence on training time and not so much on the result. To put this to the test, the model that takes the longest to complete one epoch, a model with batch size 1, was tested and the results are shown in Figure 10. Again, the black dot, originally blue, is a model that is used later for comparison in a perceptual study of the images.
 
 <p align="center">
-  <img src="/ImagesInText/Figure10.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure10.png" width="70%" height="70%"><br>
   Figure 10: The PSNR plotted for different normal epochs with batch size 1
 </p>
 
