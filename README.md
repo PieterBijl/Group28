@@ -3,7 +3,7 @@
 # Image Restoration using Pix2Pix
 
 <p align="center">
-  <img src="/ImagesInText/005158_real_A.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/005158_real_A.png" "Figure 1" width="100%" height="100%"><br>
   Figure 1: From left to right: Pixelated image - BS64 N10 - BS64 N40 - BS64 N40 LRx20 - BS1 N10 - Real image
 </p>
 
