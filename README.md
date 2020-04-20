@@ -63,11 +63,11 @@ Similar to `-n_epochs`, as used above, the optional parameters for training ar
 
 After discussing the location and the testing of the results, the optional parameters will be discussed more in detail in the following section. The resulting models are stored in the folder checkpoints and can be accessed using the following command:
 ```python
-Cd /content/Group28/checkpoints/variational_data_batch_size_64_ normal _epochs_50_decay_0/
+Cd /content/Group28/checkpoints/variational_data_batch_size_64_normal_epochs_50_decay_0/
 ```
 This data can be stored for later use and can be tested using the following piece of code:
 ```python
-!python test.py  - dataroot/content/Group28/datasets/variatonal_data/ test/  - name variational_data_batch_size_64_normal_epochs_50_decay_ 0  - model test
+!python test.py  - dataroot/content/Group28/datasets/variatonal_data/test/  - name variational_data_batch_size_64_normal_epochs_50_decay_ 0  - model test
 ```
 These results were used for later analysis of the performance of the model.
 
