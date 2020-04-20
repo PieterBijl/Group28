@@ -87,11 +87,31 @@ In their paper, P. Isola et al. use a perceptual study on the generated images. 
 
 The PSNR is a measure of similarity between the generated images and the original images. First it calculates the mean squared error, from now on called MSE, of the generated image, which can be seen in Equation 2. It subtracts the pixel values of the generated image from the real image and then sums the square of these outcomes. In the last step, this is divided by the amount of pixels in the image, 256x256.
 
+![ScreenShot](/ImagesInText/MSE.png "Equation 2")
+<p align="center">
+  Equation 2
+</p>
+
 The calculation of the PSNR is shown in Equation 3, where R is the maximum pixel value, 255.
+
+![ScreenShot](/ImagesInText/PSNR.png "Equation 3")
+<p align="center">
+  Equation 3
+</p>
 
 The higher the MSE, the lower the PSNR will be. So, when testing the models, higher values for PSNR will result in better performance. Furthermore, as a double check for the results, the cosine similarity was also computed using Equation 4. Every single pixel of the generated image is multiplied with the pixel at the same coordinates in the real image. Then, this product is divided by the multiplication of the magnitudes of both images. The magnitude of an image basically means a dot product by itself.
 
+![ScreenShot](/ImagesInText/Similarity.png "Equation 4")
+<p align="center">
+  Equation 4
+</p>
+
 To conclude, every model was tested for performance and a value was given to its PSNR and its cosine similarity. After testing all the models, the combinations of these scores were plotted in Figure 2. A trend line can be seen which shows the relationship between the two values. When the model gets a high value for its PSNR, it will also get a high value for its cosine similarity, and vice versa. The code can be found at Evaluation.py.
+
+![ScreenShot](/ImagesInText/Figure2.png "Figure 2")
+<p align="center">
+  Figure 2: Cosine similarity scores plotted against PSNR scores
+</p>
 
 ## Experiments
 This section will inform about how the datasets are created and it will discuss the selected hyperparameters to tune.
