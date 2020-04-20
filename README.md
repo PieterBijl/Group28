@@ -17,7 +17,7 @@ The objective of the pix2pix model is to find a model that can map one picture t
 
 
 <p align="center">
-  <img src="/ImagesInText/LossFunction.png" width="50%" height="50%">
+  <img src="/ImagesInText/LossFunction.png" width="50%" height="50%"><br>
   Equation 1
 </p>
 
