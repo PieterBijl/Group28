@@ -17,7 +17,7 @@ The objective of the pix2pix model is to find a model that can map one picture t
 
 <p align="center">
   <img src="/ImagesInText/LossFunction.png" width="60%" height="60%"><br>
-  Equation 1
+  Equation 1 [P. Isola et al. (https://arxiv.org/pdf/1611.07004.pdf)]
 </p>
 
 The model can then be trained and results evaluated, which has been done for a great variety of experiments. We wanted to see if another application could be made, that of image restoration of blurry pictures. We have most likely all seen a movie or tv-series in which a spy agency needed someone to "enhance" a photo in order to see smaller details, with the advent of deep learning these techniques are becoming more of a reality. We wanted to see if this general architecture of pix2pix for image translation could also be used for this application to see if you could enhance your images by using pix2pix.
@@ -93,21 +93,21 @@ The PSNR is a measure of similarity between the generated images and the origina
 
 <p align="center">
   <img src="/ImagesInText/MSE.png" width="60%" height="60%"><br>
-  Equation 2
+  Equation 2 [Mathworks (https://nl.mathworks.com/help/vision/ref/psnr.html)]
 </p>
 
 The calculation of the PSNR is shown in Equation 3, where R is the maximum pixel value, 255.
 
 <p align="center">
   <img src="/ImagesInText/PSNR.png" width="60%" height="60%"><br>
-  Equation 3
+  Equation 3 [Mathworks (https://nl.mathworks.com/help/vision/ref/psnr.html)]
 </p>
 
 The higher the MSE, the lower the PSNR will be. So, when testing the models, higher values for PSNR will result in better performance. Furthermore, as a double check for the results, the cosine similarity was also computed using Equation 4. Every single pixel of the generated image is multiplied with the pixel at the same coordinates in the real image. Then, this product is divided by the multiplication of the magnitudes of both images. The magnitude of an image basically means a dot product by itself.
 
 <p align="center">
   <img src="/ImagesInText/Similarity.png" width="60%" height="60%"><br>
-  Equation 4
+  Equation 4 [Neo4j (https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/cosine/)]
 </p>
 
 To conclude, every model was tested for performance and a value was given to its PSNR and its cosine similarity. After testing all the models, the combinations of these scores were plotted in Figure 2. A trend line can be seen which shows the relationship between the two values. When the model gets a high value for its PSNR, it will also get a high value for its cosine similarity, and vice versa. The code can be found at Evaluation.py.
