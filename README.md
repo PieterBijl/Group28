@@ -141,7 +141,9 @@ def datagenerator(old_directory,new_directory):
   return
 ```
 The complete dataset consisted of a set A which had all the pixelated images and a set B which contained the 'true' images. Using one of the python files provided by pix2pix these could then be combined to form a datasets AB which combined these two datasets that could be read by the program.
+```python
 python datasets/combine_A_and_B.py  - fold_A /path/to/data/A  - fold_B /path/to/data/B  - fold_AB /path/to/data
+```
 This dataset was then divided between a training set of 5000 images and a test set of 1000 images.
 
 ### Selected Hyperparameters
