@@ -111,7 +111,7 @@ The higher the MSE, the lower the PSNR will be. So, when testing the models, hig
 To conclude, every model was tested for performance and a value was given to its PSNR and its cosine similarity. After testing all the models, the combinations of these scores were plotted in Figure 2. A trend line can be seen which shows the relationship between the two values. When the model gets a high value for its PSNR, it will also get a high value for its cosine similarity, and vice versa. The code can be found at Evaluation.py.
 
 <p align="center">
-  <img src="/ImagesInText/Figure2.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure2.png" width="70%" height="70%"><br>
   Figure 2: Cosine similarity scores plotted against PSNR scores
 </p>
 
@@ -146,7 +146,7 @@ This dataset was then divided between a training set of 5000 images and a test s
 Next to the batch size, we choose 3 hyperparameters to tune: the number of epochs, both normal and decaying epochs, and the learning rate. First, considering the batch size, the algorithm was trained multiple times under default parameters but with increasing batch sizes. The batch size was increased with a factor of 2 each time. We found that a batch size of 64 gave the best results regarding training time on Google Colaboratory. The results in Figure 3 show the total training duration of one normal epoch and one decaying epoch. The quality difference of the output was not assessed for all these different batch sizes since it was assumed to be constant.
 
 <p align="center">
-  <img src="/ImagesInText/Figure3.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure3.png" width="70%" height="70%"><br>
   Figure 3: The runtime plotted against different batch sizes.
 </p>
 
@@ -159,7 +159,7 @@ In this section, the results of the models are presented. First, an analytical s
 The first models were trained on dataset AB with batch size of 100. This was prior to the knowledge that a batch size of 64 was the faster training option. The model name consists of a BS, N and D: Batch Size, Normal epochs and Decay epochs respectively. The results are shown in Figure 4.
 
 <p align="center">
-  <img src="/ImagesInText/Figure4.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/Figure4.png" width="70%" height="70%"><br>
   Figure 4: The PSNR plotted for different models for dataset AB and batch size 64
 </p>
 
@@ -211,7 +211,7 @@ Still, there was no clear sign of a combination of hyperparameters that would le
 These results show that the  assumption that was made can be thrown off the table. The model is almost able to reach the PSNR of the pixelated image at only 10 normal epochs. It was found before that a higher learning rate showed better results as well. In the end, a model with a learning rate of 20 times the default, using 20 normal epochs and a batch size of 1 was created to put the PSNR of the pixelated images to the test. The results are shown in Figure 11.
 
 <p align="center">
-  <img src="/ImagesInText/Figure11.png" width="60%" height="60%"><br>
+  <img src="/ImagesInText/figure11.png" width="70%" height="70%"><br>
   Figure 11: The PSNR plotted for different learning rates with batch size 1
 </p>
 
