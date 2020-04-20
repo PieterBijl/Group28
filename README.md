@@ -215,7 +215,7 @@ These results show that the  assumption that was made can be thrown off the tabl
   Figure 11: The PSNR plotted for different learning rates with batch size 1
 </p>
 
-Unfortunately, the models with a higher learning rate do not show any improvement compared to the regular learning rate.
+Unfortunately, the models with a higher learning rate do not show any improvement compared to the regular learning rate and the model with the default learning rate and batch size 1 remains the model with the best performance.
 
 ### Perceptual Study
 In this section, the models labeled with the  black dots will be used for comparison. Ten images from the AB dataset have been selected from the test set and are used to compare four different models, as shown in Figure 12. The first column shows the pixelated image and the last column shows the expected output of the model, the real image. In between, there are results from four different models. The order of the models is based on their average PSNR on the test set, from low to high.
@@ -223,6 +223,12 @@ The first model used a batch size of 64 and has been trained for 10 normal epoch
 The second model used a batch size of 64 and has been trained for 40 normal epochs. The improvement is noticeable. The colours look more similar to the real image than before and in most images the noise is decreased. Its average PSNR is 21.56.
 The third model used a batch size of 64 and has been trained for 40 normal epochs, but the difference here is that the learning rate is multiplied by 20. The results looks like a blurry variant of the real image, but shows a good improvement compared to the pixelated image. The expected reason that this model is not the best, is because it tends to create small black holes in the image, which are disastrous for the MSE and thus the PSNR. Its average PSNR is 22.10.
 The fourth model used a batch size of 1 and has been trained for 10 normal epochs. Although some noise is visible, the images are sharper than the third model and no major wrong predictions are observed. Its average PSNR is 23.16.
+
+<p align="center">
+  <img src="/ImagesInText/005509_real_A.png" width="70%" height="70%"><br>
+  <img src="/ImagesInText/005414_real_A.png" width="100%" height="70%"><br>
+  Figure 12: For 10 test images, from left to right: Pixelated image - BS64 N10 - BS64 N40 - BS64 N40 LRx20 - BS1 N10 - Real image
+</p>
 
 ## Discussion
 In this section, the type of image and the evaluation method will be discussed
