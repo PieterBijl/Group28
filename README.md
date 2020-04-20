@@ -163,7 +163,7 @@ The first models were trained on dataset AB with batch size of 100. This was pri
   Figure 4: The PSNR plotted for different models for dataset AB and batch size 64
 </p>
 
-Two interesting conclusions can already be drawn from these models. The first is that the PSNR of the pixelated image was higher than the best model so far could produce and the second is that after a certain point the model does not improve anymore. In the figure this point is at 40 normal epochs and 40 decay epochs.
+Two interesting conclusions can already be drawn from these models. The first is that the PSNR of the pixelated image was higher than the best model so far could produce and the second is that after a certain point the model does not improve anymore. In the figure this point is at 40 normal epochs and 40 decay epochs.<br>
 These results were discussed with the teaching assistant and this is when the decision was made to continue with a batch size of 64. Figure 5 combines this batch size with normal epochs up to 120, for both the AB and variational dataset. Again, the PSNR of the pixelated is not achieved and the curve flattens after around 30 or 40 epochs. The models showed similar results for both datasets. The average PSNR is higher for the variational dataset, however the pixelated image also has a higher PSNR. The two black dots, originally blue, are models that are used later for comparison in a perceptual study of the images.
 
 <p align="center">
@@ -185,7 +185,7 @@ The figure on the left shows no major improvement in the results after 30 normal
   Figure 7: The PSNR plotted for 4 identical models
 </p>
 
-Three of the results are around 22.3 and one around 22.8, meaning that the results are not always identical, but still close to each other. This deviation will not show major impact on whether the PSNR of the pixelated images can be reached or not.
+Three of the results are around 22.3 and one around 22.8, meaning that the results are not always identical, but still close to each other. This deviation will not show major impact on whether the PSNR of the pixelated images can be reached or not.<br>
 Since the decay epochs were not showing great impact on the results, the learning rate was changed instead. The default setting was at LR = 0.0002. Figure 8 shows the results for a learning rate that is 0.1 and 10 times the default value of 0.0002.
 
 <p align="center">
@@ -200,7 +200,7 @@ The higher learning rate shows a better performance on the test data. Furthermor
   Figure 9: The PSNR plotted for models with different learning rates
 </p>
 
-Results show that the model with the higher learning rate gets a better start, but becomes unstable after 40 epochs and the PSNR of the pixelated image still remains untouched. Nevertheless, a higher maximum value of the PSNR is achieved using a higher learning rate.
+Results show that the model with the higher learning rate gets a better start, but becomes unstable after 40 epochs and the PSNR of the pixelated image still remains untouched. Nevertheless, a higher maximum value of the PSNR is achieved using a higher learning rate.<br>
 Still, there was no clear sign of a combination of hyperparameters that would lead to a model that could beat the PSNR of the pixelated image. It was decided to look back on the assumptions made, especially the one where it was assumed that the batch size only had an influence on training time and not so much on the result. To put this to the test, the model that takes the longest to complete one epoch, a model with batch size 1, was tested and the results are shown in Figure 10. Again, the black dot, originally blue, is a model that is used later for comparison in a perceptual study of the images.
 
 <p align="center">
@@ -208,7 +208,7 @@ Still, there was no clear sign of a combination of hyperparameters that would le
   Figure 10: The PSNR plotted for different normal epochs with batch size 1
 </p>
 
-These results show that the  assumption that was made can be thrown off the table. The model is almost able to reach the PSNR of the pixelated image at only 10 normal epochs. 
+These results show that the  assumption that was made can be thrown off the table. The model is almost able to reach the PSNR of the pixelated image at only 10 normal epochs. <br>
 The question that remains is: How to create the most optimal model out of the results so far? It was found before that a higher learning rate showed better results, so it is worth to try this on the model with batch size 1. A model with a learning rate of 20 times the default, using 20 normal epochs and a batch size of 1 was created to put the PSNR of the pixelated images to the test. The results are shown in Figure 11.
 
 <p align="center">
@@ -225,10 +225,10 @@ Unfortunately, the models with a higher learning rate do not show any improvemen
 
 
 ### Perceptual Study
-In this section, the models labeled with the  black dots will be used for comparison. Ten images from the AB dataset have been selected from the test set and are used to compare four different models, as shown in Figure 13. The first column shows the pixelated image and the last column shows the expected output of the model, the real image. In between, there are results from four different models. The order of the models is based on their average PSNR on the test set, from low to high.
-The first model used a batch size of 64 and has been trained for 10 normal epochs. It can be seen that the model still has got difficulty in getting the colour right, plus there are quite some noisy parts in the image. Its average PSNR is 18.36.
-The second model used a batch size of 64 and has been trained for 40 normal epochs. The improvement is noticeable. The colours look more similar to the real image than before and in most images the noise is decreased. Its average PSNR is 21.56.
-The third model used a batch size of 64 and has been trained for 40 normal epochs, but the difference here is that the learning rate is multiplied by 20. The results looks like a blurry variant of the real image, but shows a good improvement compared to the pixelated image. The expected reason that this model is not the best, is because it tends to create small black holes in the image, which are disastrous for the MSE and thus the PSNR. Its average PSNR is 22.10.
+In this section, the models labeled with the  black dots will be used for comparison. Ten images from the AB dataset have been selected from the test set and are used to compare four different models, as shown in Figure 13. The first column shows the pixelated image and the last column shows the expected output of the model, the real image. In between, there are results from four different models. The order of the models is based on their average PSNR on the test set, from low to high.<br>
+The first model used a batch size of 64 and has been trained for 10 normal epochs. It can be seen that the model still has got difficulty in getting the colour right, plus there are quite some noisy parts in the image. Its average PSNR is 18.36.<br>
+The second model used a batch size of 64 and has been trained for 40 normal epochs. The improvement is noticeable. The colours look more similar to the real image than before and in most images the noise is decreased. Its average PSNR is 21.56.<br>
+The third model used a batch size of 64 and has been trained for 40 normal epochs, but the difference here is that the learning rate is multiplied by 20. The results looks like a blurry variant of the real image, but shows a good improvement compared to the pixelated image. The expected reason that this model is not the best, is because it tends to create small black holes in the image, which are disastrous for the MSE and thus the PSNR. Its average PSNR is 22.10.<br>
 The fourth model used a batch size of 1 and has been trained for 10 normal epochs. Although some noise is visible, the images are sharper than the third model and no major wrong predictions are observed. Its average PSNR is 23.16.
 
 <p align="center">
@@ -259,7 +259,7 @@ Fourthly, why is none of the models achieving the PSNR of the pixelated images? 
 
 
 ## Conclusion and Recommendations
-During this project the pix2pix algorithm was used to train models on a variety of pixelated images. The training data was pixelated with different amounts of pixels to introduce variety. The models have been trained using a wide range of hyperparameters and assessed the quality of all the different models by comparing the PSNR of test images.
+During this project the pix2pix algorithm was used to train models on a variety of pixelated images. The training data was pixelated with different amounts of pixels to introduce variety. The models have been trained using a wide range of hyperparameters and assessed the quality of all the different models by comparing the PSNR of test images.<br>
 To conclude we find that although the pix2pix algorithm has some potential towards enhancing or restoring images, it is lacking when small details are important. Some important lessons that we have learned from this experiment are:
 - Data should consist of images with a variational blur to ensure that the model can handle different types of pixelated images.
 - Careful hyperparameter tuning is of great importance for optimal results.
