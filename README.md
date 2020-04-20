@@ -21,7 +21,9 @@ For our initial research it was decided to use images of which the resolution wa
 
 ### Algorithm Training
 To train the algorithm a github repository was set up, in which the original pix2pix repository was cloned. Later we included our own data in this repository. This repository could be cloned to the virtual machine provided by Google Colaboratory, using the following code:
+```python
 !git clone https://github.com/PieterBijl/Group28.git/
+```
 From here the working directory should be set to the cloned folder and the requirements for pix2pix should be installed. This was done using the following piece of code:
 ```python
 import os
@@ -37,32 +39,36 @@ The following snippet of code is an example for training the algorithm with batc
 ```python
 !python train.py  - dataroot ./datasets/variational_data  - name variational_data_batch_size_64_normal_epochs_50_decay_0  - batch_size 64  - model pix2pix  - n_epochs 50  - n_epochs_decay 0
 ```
-The ./datasets/variational_data refers to the data stored in the folder datasets/variatonal_data. In this folder two folders are located: train and test. As the name suggests, the training data is located in the train data folder and the test data in the test data folder.
-Similar to - n_epochs, as used above, the optional parameters for training are the following:
- - n_epochs
- - n_epochs_decay
- - beta_1
- - lr
- - gan_mode
- - pool_size
- - lr_policy
- - lr_decay_iters
+The `./datasets/variational_data` refers to the data stored in the folder `datasets/variatonal_data`. In this folder two folders are located: `train` and `test`. As the name suggests, the training data is located in the train data folder and the test data in the test data folder.
+Similar to `-n_epochs`, as used above, the optional parameters for training are the following:
+- n_epochs
+- n_epochs_decay
+- beta_1
+- lr
+- gan_mode
+- pool_size
+- lr_policy
+- lr_decay_iters
 
 After discussing the location and the testing of the results, the optional parameters will be discussed more in detail in the following section. The resulting models are stored in the folder checkpoints and can be accessed using the following command:
+```python
 Cd /content/Group28/checkpoints/variational_data_batch_size_64_ normal _epochs_50_decay_0/
+```
 This data can be stored for later use and can be tested using the following piece of code:
+```python
 !python test.py  - dataroot/content/Group28/datasets/variatonal_data/ test/  - name variational_data_batch_size_64_normal_epochs_50_decay_ 0  - model test
+```
 These results were used for later analysis of the performance of the model.
 Changing hyperparameters
 In the code we identified several possible candidates for hyperparameter tuning. The possible candidates were:
-Number of epochs with a constant learning rate, default = 100.
-Number of epochs with a decaying learning rate, default = 100.
-Momentum term of Adam optimization algorithm, default = 0.5.
-The initial learning rate for the Adam optimization algorithm, default = 0.0002.
-The GAN mode, of which the options are vanilla, lsgan and wgangp, default = lsgan.
-The pool size, which is the size of the image buffer that stores previously generated images, default = 50.
-The learning rate policy, which can be linear, step, plateau or cosine, default = linear.
-The learning rate decay iterations which multiplies the learning rate by a gamma every lr_decay_iters iterations, default = 50.
+- Number of epochs with a constant learning rate, default = 100.
+- Number of epochs with a decaying learning rate, default = 100.
+- Momentum term of Adam optimization algorithm, default = 0.5.
+- The initial learning rate for the Adam optimization algorithm, default = 0.0002.
+- The GAN mode, of which the options are vanilla, lsgan and wgangp, default = lsgan.
+- The pool size, which is the size of the image buffer that stores previously generated images, default = 50.
+- The learning rate policy, which can be linear, step, plateau or cosine, default = linear.
+- The learning rate decay iterations which multiplies the learning rate by a gamma every lr_decay_iters iterations, default = 50.
 
 Additionally we looked at the algorithms training performance for different batch sizes. Using a batch size greater than one and smaller than the training set size leads to mini-batch gradient descent, in which the internal model parameters are updated after a number of samples have been worked through. This mini-batch training both requires less memory and trains faster compared to both stochastic gradient descent, where the batch size is equal to 1, and batch gradient descent, where the batch size is equal to the training set size.
 
@@ -81,29 +87,32 @@ To conclude, every model was tested for performance and a value was given to its
 This section will inform about how the datasets are created and it will discuss the selected hyperparameters to tune.
 
 ### Creating the datasets
-As specified in the method section, two datasets were created: one with images with a resolution of 64x64 pixels, scaled up to 256x256 and one where resolution was allowed to vary between 48x48 pixels to 128x128 pixels, also scaled up to 256x256. To create these datasets the van gogh dataset from pix2pix was used, this dataset included over 6000 images varying from landscapes to persons, all with a resolution of 256x256. Using python these images were used to create the two datasets that were used as the input. The dots are there to represent a tab.
+As specified in the method section, two datasets were created: one with images with a resolution of 64x64 pixels, scaled up to 256x256 and one where resolution was allowed to vary between 48x48 pixels to 128x128 pixels, also scaled up to 256x256. To create these datasets the van gogh dataset from pix2pix was used, this dataset included over 6000 images varying from landscapes to persons, all with a resolution of 256x256. Using python these images were used to create the two datasets that were used as the input. 
+```python
 from PIL import Image
 import os
 import numpy as np
 #%% Functions
 def datagenerator(old_directory,new_directory):
-….for data_file in os.listdir(data_directory):
-……..#open every image from the old file
-……..img = Image.open(old_directory+'\\'+data_file)
-……..pixel_number = round(256/np.random.randint(2,4)) 
-……..#determine what the resolution is going to be, from 48x48 to 128x128
-……..imgSmall=img.resize((pixel_number,pixel_number),resample=Image.BILINEAR) 
-……..#reduce the image to the desired resolution
-……..# Scale back up using NEAREST to original size
-……..result = imgSmall.resize(img.size,Image.NEAREST)
-……..result.save(new_directory+'\\'+data_file)
-….return
+  for data_file in os.listdir(data_directory):
+    #open every image from the old file
+    img = Image.open(old_directory+'\\'+data_file)
+    pixel_number = round(256/np.random.randint(2,4)) 
+    #determine what the resolution is going to be, from 48x48 to 128x128
+    imgSmall=img.resize((pixel_number,pixel_number),resample=Image.BILINEAR) 
+    #reduce the image to the desired resolution
+    # Scale back up using NEAREST to original size
+    result = imgSmall.resize(img.size,Image.NEAREST)
+    result.save(new_directory+'\\'+data_file)
+  return
+```
 The complete dataset consisted of a set A which had all the pixelated images and a set B which contained the 'true' images. Using one of the python files provided by pix2pix these could then be combined to form a datasets AB which combined these two datasets that could be read by the program.
 python datasets/combine_A_and_B.py  - fold_A /path/to/data/A  - fold_B /path/to/data/B  - fold_AB /path/to/data
 This dataset was then divided between a training set of 5000 images and a test set of 1000 images.
 
 ### Selected Hyperparameters
-Next to the batch size, we choose 3 hyperparameters to tune: the number of epochs, both normal and decaying epochs, and the learning rate. First, considering the batch size, the algorithm was trained multiple times under default parameters but with increasing batch sizes. The batch size was increased with a factor of 2 each time. We found that a batch size of 64 gave the best results regarding training time on Google Colaboratory. The results in Figure 3 show the total training duration of one normal epoch and one decaying epoch. The quality difference of the output was not assessed for all these different batch sizes since it was assumed to be constant.
+Next to the batch size, we choose 3 hyperparameters to tune: the number of epochs, both normal and decaying epochs, and the learning rate. First, considering the batch size, the algorithm was trained multiple times under default parameters but with increasing batch sizes. The batch size was increased with a factor of 2 each time. We found that a batch size of 64 gave the best results regarding training time on Google Colaboratory. The results in the figure below show the total training duration of one normal epoch and one decaying epoch. The quality difference of the output was not assessed for all these different batch sizes since it was assumed to be constant.
+
 
 With respect to the epochs, the models were trained with different numbers of normal and decaying epochs, ranging from 10 normal epochs to 150 normal epochs with step size 10. These were combined with decaying epochs ranging from 0 to 100 decaying epochs, also with step size 10. Finally, the learning rate has been tuned to 0.1, 10, 15 and 20 times the default value of 0.0002.
 
