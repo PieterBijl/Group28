@@ -13,8 +13,10 @@ The paper Image-to-Image Translation with Conditional Adversarial Networks showe
 The objective of the pix2pix model is to find a model that can map one picture to a desired paired image, which is indistinguishable from the real thing. An example is shown in Figure 1, where 4 different models attempt the mapping from the pixelated image to the real image. Pix2pix uses Conditional Generative Adversarial Networks to achieve this objective. Conditional means that the loss here is structured, there exists a conditional dependency between the pixels, meaning that the loss of one pixel is influenced by the loss of another. The loss function that is used by the model is shown in Equation 1.
 
 ![ScreenShot](/ImagesInText/LossFunction.png "Equation 1") Equation 1
-align="center"
+<p align="center">
+  <b>Some Links:</b><br>
   Equation 1
+</p>
 
 The model can then be trained and results evaluated, which has been done for a great variety of experiments. We wanted to see if another application could be made, that of image restoration of blurry pictures. We have most likely all seen a movie or tv-series in which a spy agency needed someone to "enhance" a photo in order to see smaller details, with the advent of deep learning these techniques are becoming more of a reality. We wanted to see if this general architecture of pix2pix for image translation could also be used for this application to see if you could enhance your images by using pix2pix.
 
