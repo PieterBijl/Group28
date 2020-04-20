@@ -3,7 +3,7 @@
 # Image Restoration using Pix2Pix
 
 <p align="center">
-  <img src="/ImagesInText/005158_real_A.png" "Figure 1" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005158_real_A.png" width="100%" height="100%"><br>
   Figure 1: From left to right: Pixelated image - BS64 N10 - BS64 N40 - BS64 N40 LRx20 - BS1 N10 - Real image
 </p>
 
@@ -14,8 +14,6 @@ We would like to thank our teaching assistant Pranjal Rajput for his guidance an
 ## Introduction
 The paper Image-to-Image Translation with Conditional Adversarial Networks showed that a general purpose solution could be made for image-to-image translation. Since the time that this paper was published, multiple artists and researchers have made their own models and experiments, with stunning results. These models range from creating cats out of drawings to creating videos of the sea by using an input from general household appliances.
 The objective of the pix2pix model is to find a model that can map one picture to a desired paired image, which is indistinguishable from the real thing. An example is shown in Figure 1, where 4 different models attempt the mapping from the pixelated image to the real image. Pix2pix uses Conditional Generative Adversarial Networks to achieve this objective. Conditional means that the loss here is structured, there exists a conditional dependency between the pixels, meaning that the loss of one pixel is influenced by the loss of another. The loss function that is used by the model is shown in Equation 1.
-
-
 
 <p align="center">
   <img src="/ImagesInText/LossFunction.png" width="60%" height="60%"><br>
@@ -90,29 +88,30 @@ In their paper, P. Isola et al. use a perceptual study on the generated images. 
 
 The PSNR is a measure of similarity between the generated images and the original images. First it calculates the mean squared error, from now on called MSE, of the generated image, which can be seen in Equation 2. It subtracts the pixel values of the generated image from the real image and then sums the square of these outcomes. In the last step, this is divided by the amount of pixels in the image, 256x256.
 
-![ScreenShot](/ImagesInText/MSE.png "Equation 2")
+
 <p align="center">
+  <img src="/ImagesInText/MSE.png" width="60%" height="60%"><br>
   Equation 2
 </p>
 
 The calculation of the PSNR is shown in Equation 3, where R is the maximum pixel value, 255.
 
-![ScreenShot](/ImagesInText/PSNR.png "Equation 3")
 <p align="center">
+  <img src="/ImagesInText/PSNR.png" width="60%" height="60%"><br>
   Equation 3
 </p>
 
 The higher the MSE, the lower the PSNR will be. So, when testing the models, higher values for PSNR will result in better performance. Furthermore, as a double check for the results, the cosine similarity was also computed using Equation 4. Every single pixel of the generated image is multiplied with the pixel at the same coordinates in the real image. Then, this product is divided by the multiplication of the magnitudes of both images. The magnitude of an image basically means a dot product by itself.
 
-![ScreenShot](/ImagesInText/Similarity.png "Equation 4")
 <p align="center">
+  <img src="/ImagesInText/Similarity.png" width="60%" height="60%"><br>
   Equation 4
 </p>
 
 To conclude, every model was tested for performance and a value was given to its PSNR and its cosine similarity. After testing all the models, the combinations of these scores were plotted in Figure 2. A trend line can be seen which shows the relationship between the two values. When the model gets a high value for its PSNR, it will also get a high value for its cosine similarity, and vice versa. The code can be found at Evaluation.py.
 
-![ScreenShot](/ImagesInText/Figure2.png "Figure 2")
 <p align="center">
+  <img src="/ImagesInText/Figure2.png" width="60%" height="60%"><br>
   Figure 2: Cosine similarity scores plotted against PSNR scores
 </p>
 
