@@ -225,8 +225,16 @@ The third model used a batch size of 64 and has been trained for 40 normal epoch
 The fourth model used a batch size of 1 and has been trained for 10 normal epochs. Although some noise is visible, the images are sharper than the third model and no major wrong predictions are observed. Its average PSNR is 23.16.
 
 <p align="center">
-  <img src="/ImagesInText/005509_real_A.png" width="70%" height="70%"><br>
-  <img src="/ImagesInText/005414_real_A.png" width="100%" height="70%"><br>
+  <img src="/ImagesInText/005509_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005414_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005241_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005200_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005176_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005158_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005147_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005110_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005097_real_A.png" width="100%" height="100%"><br>
+  <img src="/ImagesInText/005077_real_A.png" width="100%" height="100%"><br>
   Figure 12: For 10 test images, from left to right: Pixelated image - BS64 N10 - BS64 N40 - BS64 N40 LRx20 - BS1 N10 - Real image
 </p>
 
