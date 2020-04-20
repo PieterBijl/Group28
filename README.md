@@ -81,7 +81,7 @@ The calculation of the PSNR is shown in Equation 3, where R is the maximum pixel
 
 The higher the MSE, the lower the PSNR will be. So, when testing the models, higher values for PSNR will result in better performance. Furthermore, as a double check for the results, the cosine similarity was also computed using Equation 4. Every single pixel of the generated image is multiplied with the pixel at the same coordinates in the real image. Then, this product is divided by the multiplication of the magnitudes of both images. The magnitude of an image basically means a dot product by itself.
 
-To conclude, every model was tested for performance and a value was given to its PSNR and its cosine similarity. After testing all the models, the combinations of these scores were plotted in Figure 2. A trend line can be seen which shows the relationship between the two values. When the model gets a high value for its PSNR, it will also get a high value for its cosine similarity, and vice versa.
+To conclude, every model was tested for performance and a value was given to its PSNR and its cosine similarity. After testing all the models, the combinations of these scores were plotted in Figure 2. A trend line can be seen which shows the relationship between the two values. When the model gets a high value for its PSNR, it will also get a high value for its cosine similarity, and vice versa. The code can be found at Evaluation.py.
 
 ## Experiments
 This section will inform about how the datasets are created and it will discuss the selected hyperparameters to tune.
