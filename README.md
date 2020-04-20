@@ -48,7 +48,8 @@ cd /content/Group28/
 ```
 The following snippet of code is an example for training the algorithm with batch size 64, 50 normal epochs and 0 decay epochs:
 ```python
-!python train.py  - dataroot ./datasets/variational_data  - name variational_data_batch_size_64_normal_epochs_50_decay_0  - batch_size 64  - model pix2pix  - n_epochs 50  - n_epochs_decay 0
+!python train.py  - dataroot ./datasets/variational_data  - name variational_data_batch_size_64\
+  _normal_epochs_50_decay_0  - batch_size 64  - model pix2pix  - n_epochs 50  - n_epochs_decay 0
 ```
 The `./datasets/variational_data` refers to the data stored in the folder `datasets/variatonal_data`. In this folder two folders are located: `train` and `test`. As the name suggests, the training data is located in the train data folder and the test data in the test data folder.
 Similar to `-n_epochs`, as used above, the optional parameters for training are the following:
@@ -67,7 +68,8 @@ Cd /content/Group28/checkpoints/variational_data_batch_size_64_ normal _epochs_5
 ```
 This data can be stored for later use and can be tested using the following piece of code:
 ```python
-!python test.py  - dataroot/content/Group28/datasets/variatonal_data/ test/  - name variational_data_batch_size_64_normal_epochs_50_decay_ 0  - model test
+!python test.py  - dataroot/content/Group28/datasets/variatonal_data/ test/  - name variational_data\
+_batch_size_64_normal_epochs_50_decay_ 0  - model test
 ```
 These results were used for later analysis of the performance of the model.
 
