@@ -23,14 +23,20 @@ For our initial research it was decided to use images of which the resolution wa
 To train the algorithm a github repository was set up, in which the original pix2pix repository was cloned. Later we included our own data in this repository. This repository could be cloned to the virtual machine provided by Google Colaboratory, using the following code:
 !git clone https://github.com/PieterBijl/Group28.git/
 From here the working directory should be set to the cloned folder and the requirements for pix2pix should be installed. This was done using the following piece of code:
+```python
 import os
 os.chdir('Group28/')
 !pip install -r requirements.txt
+```
 Or alternatively with:
+```python
 cd /content/Group28/
 !pip install -r requirements.txt
+```
 The following snippet of code is an example for training the algorithm with batch size 64, 50 normal epochs and 0 decay epochs:
+```python
 !python train.py  - dataroot ./datasets/variational_data  - name variational_data_batch_size_64_normal_epochs_50_decay_0  - batch_size 64  - model pix2pix  - n_epochs 50  - n_epochs_decay 0
+```
 The ./datasets/variational_data refers to the data stored in the folder datasets/variatonal_data. In this folder two folders are located: train and test. As the name suggests, the training data is located in the train data folder and the test data in the test data folder.
 Similar to - n_epochs, as used above, the optional parameters for training are the following:
  - n_epochs
