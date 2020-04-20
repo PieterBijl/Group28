@@ -218,9 +218,14 @@ The question that remains is: How to create the most optimal model out of the re
 
 Unfortunately, the models with a higher learning rate do not show any improvement compared to the regular learning rate and the model with the default learning rate and batch size 1 remains the model with the best performance. Now, would the PSNR values increase if the model is tested on a set of training images instead of test images? An expected answer is yes, since this is what the model's weights are trained on. To put this to the test, a model trained on the variational data with batch size 64 has been tested on both the training and the test set with different amounts of normal epochs. The results are shown in Figure 12.
 
+<p align="center">
+  <img src="/ImagesInText/Figure13.png" width="70%" height="70%"><br>
+  Figure 12: The PSNR plotted for both the training and test set of the variational data with batch size 64
+</p>
+
 
 ### Perceptual Study
-In this section, the models labeled with the  black dots will be used for comparison. Ten images from the AB dataset have been selected from the test set and are used to compare four different models, as shown in Figure 12. The first column shows the pixelated image and the last column shows the expected output of the model, the real image. In between, there are results from four different models. The order of the models is based on their average PSNR on the test set, from low to high.
+In this section, the models labeled with the  black dots will be used for comparison. Ten images from the AB dataset have been selected from the test set and are used to compare four different models, as shown in Figure 13. The first column shows the pixelated image and the last column shows the expected output of the model, the real image. In between, there are results from four different models. The order of the models is based on their average PSNR on the test set, from low to high.
 The first model used a batch size of 64 and has been trained for 10 normal epochs. It can be seen that the model still has got difficulty in getting the colour right, plus there are quite some noisy parts in the image. Its average PSNR is 18.36.
 The second model used a batch size of 64 and has been trained for 40 normal epochs. The improvement is noticeable. The colours look more similar to the real image than before and in most images the noise is decreased. Its average PSNR is 21.56.
 The third model used a batch size of 64 and has been trained for 40 normal epochs, but the difference here is that the learning rate is multiplied by 20. The results looks like a blurry variant of the real image, but shows a good improvement compared to the pixelated image. The expected reason that this model is not the best, is because it tends to create small black holes in the image, which are disastrous for the MSE and thus the PSNR. Its average PSNR is 22.10.
@@ -237,7 +242,7 @@ The fourth model used a batch size of 1 and has been trained for 10 normal epoch
   <img src="/ImagesInText/005110_real_A.png" width="100%" height="100%"><br>
   <img src="/ImagesInText/005097_real_A.png" width="100%" height="100%"><br>
   <img src="/ImagesInText/005077_real_A.png" width="100%" height="100%"><br>
-  Figure 12: For 10 test images, from left to right: Pixelated image - BS64 N10 - BS64 N40 - BS64 N40 LRx20 - BS1 N10 - Real image
+  Figure 13: For 10 test images, from left to right: Pixelated image - BS64 N10 - BS64 N40 - BS64 N40 LRx20 - BS1 N10 - Real image
 </p>
 
 ## Discussion
